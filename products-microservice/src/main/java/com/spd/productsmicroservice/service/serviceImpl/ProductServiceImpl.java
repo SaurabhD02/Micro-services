@@ -54,7 +54,7 @@ public class ProductServiceImpl implements ProductService{
 			
 		}else {
 			log.error("No product found with the productId -> {}", productId);
-			throw new ProductNotFoundException();
+			throw new ProductNotFoundException("Product Not found with productId "+ productId);
 		}
 		
 		return null;
@@ -68,7 +68,7 @@ public class ProductServiceImpl implements ProductService{
 			p = fetchedProduct.get();
 		}else {
 			log.error("No product found with the productId -> {}", productId);
-			throw new ProductNotFoundException();
+			throw new ProductNotFoundException("Product Not found with productId "+ productId);
 		}
 		return modelMapper.map(p, ProductDto.class);
 	}
